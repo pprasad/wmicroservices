@@ -1,0 +1,26 @@
+server:
+  port: 8083
+  
+logging:
+  level:
+    ROOT: INFO
+    
+spring:
+ application:
+  name: coupen-service
+
+eeureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+    prefer-ip-address: true   
+    
+error:
+ whitelabel:
+  enabled: false
+  
+      

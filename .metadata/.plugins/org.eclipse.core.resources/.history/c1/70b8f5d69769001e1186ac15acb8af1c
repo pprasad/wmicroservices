@@ -1,0 +1,60 @@
+server:
+   port: 8081
+ 
+spring:
+ application:
+   name: product-service 
+ datasource:
+   username: sa
+   password: sa
+   driverClassname: org.h2.Driver
+   url: jdbc:h2:file:C:\Users\ppras\h2db\prod;AUTO_SERVER=TRUE
+ jpa:
+  spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  show-sql: true
+  hibernate:
+    ddl-auto: update
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.H2Dialect    
+ h2:
+  console:
+    enabled: true
+    path: /h2
+    settings:
+     web-allow-others: true
+hibernate:
+   dialect: org.hibernate.dialect.H2Dialect      
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: '*'
+        exclude: 'beans'
+  endpoint:
+    health:
+      enabled: true  
+    beans:
+      enabled: true
+      cache:
+       time-to-live: "10s"
+    info:
+     enabled: true
+     app:
+       encoding: "@project.build.sourceEncoding@"
+       java:
+         source: "@java.version@"
+         target: "@java.version@" 
+api:
+ coupen:
+    host: http://API-GATEWAY/
+    path: /coupens/getcoupencode             
+        
+#logging:
+  #file:
+   #name: prod.log  
+  #pattern:
+   #file: "%d %-5level [%thread] %logger{0}: %msg%n"   
+   #console: "%d %-5level --- [%thread] %logger{0}: %msg%n"
+  #level: 
